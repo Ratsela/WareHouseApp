@@ -159,7 +159,7 @@ panel_js = function(runBeforeShow) {
                 event.stopPropagation();
             });
 
-            $(document).off("click", '#panel_mobileheader [name="mobilenavbaritem_4"]').on({
+            $(document).off("click tap select", '#panel_mobileheader [name="mobilenavbaritem_4"]').on({
                 click: function() {
                     if (!$(this).attr('disabled')) {
                         try {
@@ -170,6 +170,24 @@ panel_js = function(runBeforeShow) {
                         };
 
                     }
+                },
+                tap: function() {
+                    try {
+                        mobilecamera1.execute({})
+                    } catch (ex) {
+                        console.log(ex.name + '  ' + ex.message);
+                        hideSpinner();
+                    };
+                    event.stopPropagation();
+                    return false;
+                },
+                select: function() {
+                    try {
+                        mobilecamera1.execute({})
+                    } catch (ex) {
+                        console.log(ex.name + '  ' + ex.message);
+                        hideSpinner();
+                    };
                 },
             }, '#panel_mobileheader [name="mobilenavbaritem_4"]');
 
