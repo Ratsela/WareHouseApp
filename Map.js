@@ -65,6 +65,50 @@ Map_js = function(runBeforeShow) {
      */
     var datasources = [];
 
+    mobilecamera1 = new Apperyio.DataSource(CameraService, {
+        'onBeforeSend': function(jqXHR) {
+
+        },
+        'onComplete': function(jqXHR, textStatus) {
+
+            Apperyio.refreshScreenFormElements("Map");
+        },
+        'onSuccess': function(data) {},
+        'onError': function(jqXHR, textStatus, errorThrown) {},
+        'responseMapping': [],
+        'requestMapping': [{
+            'PATH': ['quality'],
+            'TYPE': 'STRING',
+            'ATTR': '80'
+        }, {
+            'PATH': ['destinationType'],
+            'TYPE': 'STRING',
+            'ATTR': 'Data URL'
+        }, {
+            'PATH': ['sourcetype'],
+            'TYPE': 'STRING',
+            'ATTR': 'Camera'
+        }, {
+            'PATH': ['allowedit'],
+            'TYPE': 'STRING',
+            'ATTR': 'true'
+        }, {
+            'PATH': ['encodingType'],
+            'TYPE': 'STRING',
+            'ATTR': 'JPEG'
+        }, {
+            'PATH': ['targetWidth'],
+            'TYPE': 'STRING',
+            'ATTR': '1024'
+        }, {
+            'PATH': ['targetHeight'],
+            'TYPE': 'STRING',
+            'ATTR': '768'
+        }]
+    });
+
+    datasources.push(mobilecamera1);
+
     /*
      * Events and handlers
      */
@@ -80,6 +124,13 @@ Map_js = function(runBeforeShow) {
     // On Load
     var Map_onLoad = function() {
             Map_elementsExtraJS();
+
+            try {
+                mobilecamera1.execute({})
+            } catch (ex) {
+                console.log(ex.name + '  ' + ex.message);
+                hideSpinner();
+            };
 
             // TODO fire device events only if necessary (with JS logic)
             Map_deviceEvents();

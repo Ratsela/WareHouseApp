@@ -16,6 +16,19 @@
 .startScreen_mobilelistitembutton_4 {
 
 }
+/* mobilebutton_6 */
+#startScreen_mobilebutton_6 {
+
+}
+.ui-btn.startScreen_mobilebutton_6 {
+	margin: 4px 5px 4px 5px;
+}
+/* photPreview */
+.startScreen_photPreview {
+	margin: 4px 0px 4px 0px;
+	width: 100px; height: 100px;
+	display: block;
+}
 /* mobilefooter1 */
 .startScreen_mobilefooter1 {
 	min-height:38px;

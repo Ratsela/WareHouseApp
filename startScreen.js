@@ -42,7 +42,9 @@ startScreen_js = function(runBeforeShow) {
     var n2id_buf = {
         'mobilelist_2': 'startScreen_mobilelist_2',
         'mobilelistitem_3': 'startScreen_mobilelistitem_3',
-        'mobilelistitembutton_4': 'startScreen_mobilelistitembutton_4'
+        'mobilelistitembutton_4': 'startScreen_mobilelistitembutton_4',
+        'mobilebutton_6': 'startScreen_mobilebutton_6',
+        'photPreview': 'startScreen_photPreview'
     };
 
     if ("n2id" in window && window.n2id !== undefined) {
@@ -95,6 +97,54 @@ startScreen_js = function(runBeforeShow) {
     });
 
     datasources.push(restservice1);
+
+    camera_shot = new Apperyio.DataSource(CameraService, {
+        'onBeforeSend': function(jqXHR) {
+
+        },
+        'onComplete': function(jqXHR, textStatus) {
+
+            Apperyio.refreshScreenFormElements("startScreen");
+        },
+        'onSuccess': function(data) {},
+        'onError': function(jqXHR, textStatus, errorThrown) {},
+        'responseMapping': [{
+            'PATH': ['imageDataBase64'],
+            'ID': 'photPreview',
+            'ATTR': 'src'
+        }],
+        'requestMapping': [{
+            'PATH': ['quality'],
+            'TYPE': 'STRING',
+            'ATTR': '80'
+        }, {
+            'PATH': ['destinationType'],
+            'TYPE': 'STRING',
+            'ATTR': 'Data URL'
+        }, {
+            'PATH': ['sourcetype'],
+            'TYPE': 'STRING',
+            'ATTR': 'Camera'
+        }, {
+            'PATH': ['allowedit'],
+            'TYPE': 'STRING',
+            'ATTR': 'true'
+        }, {
+            'PATH': ['encodingType'],
+            'TYPE': 'STRING',
+            'ATTR': 'JPEG'
+        }, {
+            'PATH': ['targetWidth'],
+            'TYPE': 'STRING',
+            'ATTR': '1024'
+        }, {
+            'PATH': ['targetHeight'],
+            'TYPE': 'STRING',
+            'ATTR': '768'
+        }]
+    });
+
+    datasources.push(camera_shot);
 
     /*
      * Events and handlers
@@ -181,6 +231,20 @@ startScreen_js = function(runBeforeShow) {
                     }
                 },
             }, '#startScreen_mobilecontainer1 [name="mobilelistitem_3"]');
+
+            $(document).off("click", '#startScreen_mobilecontainer1 [name="mobilebutton_6"]').on({
+                click: function() {
+                    if (!$(this).attr('disabled')) {
+                        try {
+                            camera_shot.execute({})
+                        } catch (ex) {
+                            console.log(ex.name + '  ' + ex.message);
+                            hideSpinner();
+                        };
+
+                    }
+                },
+            }, '#startScreen_mobilecontainer1 [name="mobilebutton_6"]');
 
         };
 
