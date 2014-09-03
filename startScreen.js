@@ -28,6 +28,9 @@ function setDetailContent(pageUrl) {
 Apperyio.AppPages = [{
     "name": "startScreen",
     "location": "startScreen.html"
+}, {
+    "name": "panel",
+    "location": "panel.html"
 }];
 
 startScreen_js = function(runBeforeShow) {
@@ -36,12 +39,7 @@ startScreen_js = function(runBeforeShow) {
     var n2id_buf = {
         'mobilelist_2': 'startScreen_mobilelist_2',
         'mobilelistitem_3': 'startScreen_mobilelistitem_3',
-<<<<<<< HEAD
-        'mobilelistitembutton_4': 'startScreen_mobilelistitembutton_4',
-        'mobilebutton_5': 'startScreen_mobilebutton_5'
-=======
         'mobilelistitembutton_4': 'startScreen_mobilelistitembutton_4'
->>>>>>> 4a2936f6f69abaf28eaef394d05a81921bd2aa50
     };
 
     if ("n2id" in window && window.n2id !== undefined) {
@@ -170,25 +168,17 @@ startScreen_js = function(runBeforeShow) {
                 event.stopPropagation();
             });
 
-<<<<<<< HEAD
-            $(document).off("click", '#startScreen_mobilefooter1 [name="mobilebutton_5"]').on({
+            $(document).off("click", '#startScreen_mobilecontainer1 [name="mobilelistitem_3"]').on({
                 click: function() {
                     if (!$(this).attr('disabled')) {
-                        var msg = 'Model: ' + device.model + '\nCordova: ' + device.cordova + '\nPlatform: ' + device.platform;
-
-                        navigator.notification.alert(
-                        msg, alertWindowClosed, 'Appery.io App', 'Close');
-
-                        function alertWindowClosed() {
-                            // do nothing for now
-                        };
+                        Apperyio.navigateTo('panel', {
+                            reverse: false
+                        });
 
                     }
                 },
-            }, '#startScreen_mobilefooter1 [name="mobilebutton_5"]');
+            }, '#startScreen_mobilecontainer1 [name="mobilelistitem_3"]');
 
-=======
->>>>>>> 4a2936f6f69abaf28eaef394d05a81921bd2aa50
         };
 
     $(document).off("pagebeforeshow", "#startScreen").on("pagebeforeshow", "#startScreen", function(event, ui) {

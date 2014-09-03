@@ -17,7 +17,7 @@ var WarehouseDB_Merchandise_list_service = new Apperyio.RestService({
 
     'serviceSettings': WarehouseDB_settings
 });
-
+var CameraService = new Apperyio.CameraService({});
 /*
  * Data models
  */
