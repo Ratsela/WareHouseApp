@@ -3,7 +3,7 @@
     
     <head>
         <title>
-            panel
+            Map
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="initial-scale=1" />
@@ -68,52 +68,41 @@
     </head>
     
     <body>
-        <div data-role="page" style="min-height:480px;" dsid="panel" id="panel" class="type-interior"
+        <div data-role="page" style="min-height:480px;" dsid="Map" id="Map" class="type-interior"
         data-theme="b">
             <!-- mobileheader -->
             <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
-            data-theme="b" name="mobileheader" id="panel_mobileheader" class="panel_mobileheader">
+            data-theme="b" name="mobileheader" id="Map_mobileheader" class="Map_mobileheader">
                 <h1 dsid="mobileheader">
                     Caption
                 </h1>
-                <!-- mobilenavbar_2 -->
-                <div data-role="navbar" id="panel_mobilenavbar_2" name="mobilenavbar_2" dsid="mobilenavbar_2"
-                class="panel_mobilenavbar_2" data-theme="b" style="position: relative;">
-                    <ul>
-                        <!-- mobilenavbaritem_3 -->
-                        <li>
-                            <a data-theme="b" data-icon="star" id="panel_mobilenavbaritem_3" dsid="mobilenavbaritem_3"
-                            name="mobilenavbaritem_3">
-                            Choose Area
-                            </a>
-                        </li>
-                        <!-- mobilenavbaritem_4 -->
-                        <li>
-                            <a data-theme="b" data-icon="star" id="panel_mobilenavbaritem_4" dsid="mobilenavbaritem_4"
-                            name="mobilenavbaritem_4">
-                            Camera
-                            </a>
-                        </li>
-                        <!-- mobilenavbaritem_5 -->
-                        <li>
-                            <a data-theme="b" data-icon="star" id="panel_mobilenavbaritem_5" dsid="mobilenavbaritem_5"
-                            name="mobilenavbaritem_5">
-                            View Blinds
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </div>
             <!-- mobilecontainer -->
-            <div data-role="content" id="panel_mobilecontainer" name="mobilecontainer" class="panel_mobilecontainer ui-content"
+            <div data-role="content" id="Map_mobilecontainer" name="mobilecontainer" class="Map_mobilecontainer ui-content"
             dsid="mobilecontainer" data-theme="b">
-                <link href="panel.css" rel="stylesheet" type="text/css" />
-                <script type="text/javascript" src="panel.js">
+                <link href="Map.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="Map.js">
                 </script>
+                <!-- googlemap_2 -->
+                <div id="Map_googlemap_2" dsid="googlemap_2" name="googlemap_2" tiggzitype="object"
+                apperytype="object" class='Map_googlemap_2' style='width:100%;'>
+                    <img class='Map_googlemap_2' src="http://assets1.geocommons.com/d51ab1366bec6a2c4954db979e5921bd4cc140db/images/no_preview_map.png?1311276822"
+                    />
+                </div>
+                <ul data-role="listview" id="Map_googlemap_2_markers" name="googlemap_2_markers"
+                dsid="googlemap_2_markers" style="display:none">
+                    <!-- marker_3 -->
+                    <li id="Map_marker_3" name="marker_3" dsid="marker_3" tiggzitype="marker" apperytype="marker"
+                    rendered="true" latitude="" longitude="" text="Add Components Here" address="San Francisco, CA"
+                    show_info="true" style="display:none">
+                        <div id="Map_marker_3_infoWindow" name="marker_3_infoWindowContent" class='Map_marker_3'>
+                        </div>
+                    </li>
+                </ul>
             </div>
             <!-- mobilefooter -->
-            <div data-role="footer" data-position="fixed" class="panel_mobilefooter" name="mobilefooter"
-            dsid="mobilefooter" id="panel_mobilefooter" data-theme="b">
+            <div data-role="footer" data-position="fixed" class="Map_mobilefooter" name="mobilefooter"
+            dsid="mobilefooter" id="Map_mobilefooter" data-theme="b">
             </div>
         </div>
     </body>

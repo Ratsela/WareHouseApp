@@ -29,6 +29,9 @@ Apperyio.AppPages = [{
     "name": "startScreen",
     "location": "startScreen.html"
 }, {
+    "name": "Map",
+    "location": "Map.html"
+}, {
     "name": "panel",
     "location": "panel.html"
 }];
@@ -190,6 +193,16 @@ panel_js = function(runBeforeShow) {
                     };
                 },
             }, '#panel_mobileheader [name="mobilenavbaritem_4"]');
+            $(document).off("click", '#panel_mobileheader [name="mobilenavbaritem_5"]').on({
+                click: function() {
+                    if (!$(this).attr('disabled')) {
+                        Apperyio.navigateTo('Map', {
+                            reverse: false
+                        });
+
+                    }
+                },
+            }, '#panel_mobileheader [name="mobilenavbaritem_5"]');
 
         };
 
